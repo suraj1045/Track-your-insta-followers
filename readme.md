@@ -62,3 +62,20 @@ python3 main.py
 ```
 
 The script will analyze the files in the `data/` directory and print a list of users who do not follow you back.
+
+---
+
+## 📂 Project Structure
+
+```
+.
+├── data/
+├── src/
+│   ├── __init__.py
+│   └── analyzer.py
+├── tests/
+│   ├── __init__.py
+│   └── test_analyzer.py
+├── main.py
+└── readme.md
+```
