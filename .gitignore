@@ -1,0 +1,14 @@
+# Python internals
+__pycache__/
+*.pyc
+
+# OS generated files
+.DS_Store
+
+# Project Data (Security Risk)
+data/
+*.zip
+
+# Test artifacts
+test_env/
+tests/

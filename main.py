@@ -1,6 +1,7 @@
 import os
 import sys
 from src.analyzer import load_usernames_from_file, get_non_followers
+from src.data_loader import setup_instagram_data
 
 # Configuration
 DATA_DIR = 'data'
@@ -14,16 +15,12 @@ def main():
     following_path = os.path.join(DATA_DIR, FOLLOWING_FILE)
     followers_path = os.path.join(DATA_DIR, FOLLOWERS_FILE)
 
-    # Validate file existence before proceeding
-    if not os.path.exists(following_path):
-        print(f"❌ Error: '{FOLLOWING_FILE}' not found in '{DATA_DIR}/'.")
-        print("   Please extract your Instagram data and place the file there.")
-        return
-
-    if not os.path.exists(followers_path):
-        print(f"❌ Error: '{FOLLOWERS_FILE}' not found in '{DATA_DIR}/'.")
-        print("   Please extract your Instagram data and place the file there.")
-        return
+    # Check if data files exist, if not try to setup from zip
+    if not (os.path.exists(following_path) and os.path.exists(followers_path)):
+        print("⚠️  Data files not found. Attempting to auto-load from zip...")
+        if not setup_instagram_data(base_path=".", data_dir=DATA_DIR):
+            print("   Please download your Instagram data as JSON, zip it, and place it in this folder.")
+            return
 
     try:
         print(f"Loading data from {DATA_DIR}...")
