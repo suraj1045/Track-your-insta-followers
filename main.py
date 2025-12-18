@@ -17,9 +17,9 @@ def main():
 
     # Check if data files exist, if not try to setup from zip
     if not (os.path.exists(following_path) and os.path.exists(followers_path)):
-        print("⚠️  Data files not found. Attempting to auto-load from zip...")
-        if not setup_instagram_data(base_path=".", data_dir=DATA_DIR):
-            print("   Please download your Instagram data as JSON, zip it, and place it in this folder.")
+        print(f"⚠️  Data files not found in {DATA_DIR}. Attempting to auto-load from zip in {DATA_DIR}...")
+        if not setup_instagram_data(base_path=DATA_DIR, data_dir=DATA_DIR):
+            print(f"   Please download your Instagram data as JSON, zip it, and place it in the '{DATA_DIR}' folder.")
             return
 
     try:

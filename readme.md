@@ -39,11 +39,9 @@ This stage must be performed through the Instagram platform itself.
 
 ## 🛠️ Stage 2: Data Preparation
 
-Before running the script, you must get the correct files into the correct location.
-
-1.  **Extract the ZIP file:** Unzip the downloaded file.
-2.  **Locate the Files:** Find the `followers_and_following.json` (or separate `followers.json` and `following.json`) inside the extracted folders.
-3.  **Place in Data Directory:** Move these files into the `data/` folder of this project. Ensure they are named `followers.json` and `following.json`.
+1.  **Download your data** from Instagram (as described in Stage 1).
+2.  **Do NOT unzip it.**
+3.  **Place the ZIP file** (e.g., `instagram-data-download.zip`) into the `data/` folder of this project.
 
 ---
 
@@ -60,6 +58,12 @@ Open your terminal or command prompt, navigate to the project directory, and run
 ```bash
 python3 main.py
 ```
+
+The script will automatically:
+1.  Find your zip file.
+2.  Extract the necessary data.
+3.  Analyze your followers.
+4.  Print a list of users who do not follow you back.
 
 The script will analyze the files in the `data/` directory and print a list of users who do not follow you back.
 
